@@ -5,22 +5,21 @@ import GuestList from '../components/GuestList.vue';
 import Seating from '../components/Seating.vue';
 
 const router = useRouter();
-const { generateGuests, guests } = useGuests();
+const { guests, generateGuests, assignSeats } = useGuests();
 </script>
 
 <template>
   <div class="assignment">
     <div class="assignment__header">
-      <h2>Concert Seating Assignment</h2>
+      <h2>Guest List</h2>
       <div class="assignment__header-actions">
-        <button @click="generateGuests()">Generate Guest List</button>
-        <button @click="generateGuests()" :disabled="!guests.length">Assign Seats</button>
+        <button class="action" @click="generateGuests()">Generate Guest List</button>
+        <button class="action" @click="assignSeats()" :disabled="!guests.length">Assign Seats</button>
       </div>
     </div>
     <div class="assignment__main">
       <GuestList :guests="guests" />
     </div>
-    <!-- <Seating :guests="guests" /> -->
   </div>
 </template>
 
@@ -31,14 +30,14 @@ const { generateGuests, guests } = useGuests();
       align-items: center;
       justify-content: space-between;
       padding: 15px;
-      &-actions {
-        button {
+    }
+    &__header-actions {
+        .action:last-child {
           margin-left: 15px;
         }
       }
-    }
     &__main {
-      height: 300px;
+      height: 500px;
       overflow: auto;
       padding: 15px;
       margin: 15px;

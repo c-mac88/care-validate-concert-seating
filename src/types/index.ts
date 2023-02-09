@@ -3,6 +3,7 @@ export interface Guest {
   companions: number,
   name: string,
   packageID: number
+  seatID: string;
 }
 
 export enum Package {

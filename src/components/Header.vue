@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <h1>Care Validate Concert Series</h1>
+    <h1>CareValidate Concert Seating</h1>
   </div>
 </template>
 
