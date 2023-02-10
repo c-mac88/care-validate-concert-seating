@@ -1,13 +1,16 @@
 <script setup lang="ts">
 import { Guest } from '../types';
-defineProps<{ guests: Guest[] }>();
+defineProps<{ seatingMatrix: number[][] }>();
 const rows = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'];
 </script>
 
 <template>
   <div class="seating">
-    <div class="seating__row" v-for="row in rows">
-      <div class="seating__seat" v-for="(_, index) in rows">{{ row + (index + 1) }}</div>
+    <div class="seating__row" v-for="row, rowIndex in rows">
+      <div class="seating__seat" v-for="_, seatIndex in rows">
+        <span v-if="seatingMatrix.length">{{  seatingMatrix[rowIndex][seatIndex] }}</span>
+        <span v-else>{{ row + (seatIndex + 1) }}</span>
+      </div>
     </div>
   </div>
 </template>

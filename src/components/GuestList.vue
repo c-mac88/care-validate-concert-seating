@@ -22,7 +22,7 @@ defineProps<{ guests: Guest[] }>();
       <td>{{ guest.packageID }}</td>
       <td>{{ guest.seatID }}</td>
       <td>
-        <a v-if="guest.seatID" :href="`/guest/${guest.id}`">View Itinerary</a>
+        <router-link v-if="guest.seatID" :to="`/guest/${guest.id}`">View Itinerary</router-link>
       </td>
     </tr>
   </table>
